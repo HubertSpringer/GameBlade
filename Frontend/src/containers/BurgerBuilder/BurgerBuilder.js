@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import { findAllInRenderedTree } from 'react-dom/cjs/react-dom-test-utils.production.min';
 
 const INGREDIENT_PRICES = {
 	salad: 0.5,
@@ -79,6 +80,14 @@ class BurgerBuilder extends Component {
 		this.setState({purchasing: true});
 	}
 
+	purchaseCancelHanlder= () => {
+		this.setState({purchasing: false});
+	}
+
+	purchaseContinueHanlder= () => {
+		alert('You continue!');
+	}
+
 	render(){
 		const disabledInfo = {
 			...this.state.ingredients
@@ -88,8 +97,11 @@ class BurgerBuilder extends Component {
 		}
 		return (
 			<Auxiliary>
-				<Modal show={this.state.purchasing}>
-					<OrderSummary ingredients={this.state.ingredients}/>
+				<Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHanlder}>
+					<OrderSummary 
+						ingredients={this.state.ingredients} 
+						cancel={this.purchaseCancelHanlder}
+						continue={this.purchaseContinueHanlder}/>
 				</Modal>
 				<Burger ingredients={this.state.ingredients} />
 				<BuildControls 
