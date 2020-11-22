@@ -15,4 +15,4 @@ const modal = (props) => (
 	</Auxiliary>
 );
 
-export default modal
+export default React.memo(modal)

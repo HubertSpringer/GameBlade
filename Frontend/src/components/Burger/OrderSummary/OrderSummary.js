@@ -12,7 +12,6 @@ const orderSummary = (props) => {
 				)
 		});
 
-
 	return(
 		<Auxiliary>
 			<h3>Your Order</h3>
