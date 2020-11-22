@@ -18,7 +18,6 @@ const burger = (props) => {
 			transformedIngredients = <p>Please start adding ingedients!</p>
 		}
 
-
 	return (
 		<div className={classes.Burger}>
 			<BurgerIngredient type="bread-top" />
