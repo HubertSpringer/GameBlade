@@ -1,3 +1,5 @@
 ﻿Frontend/node_modules
 Backend/Core/obj
 Backend/.vs
+Frontend/build
+/Frontend/node_modules/
